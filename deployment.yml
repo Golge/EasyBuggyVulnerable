@@ -17,7 +17,15 @@ spec:
         image: 336953435369.dkr.ecr.us-west-2.amazonaws.com/asg
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
+        - containerPort: 8081
+        resources: 
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+                  
 # service type loadbalancer       
 ---
 apiVersion: v1
@@ -32,7 +40,7 @@ spec:
   - name: http
     port: 80
     protocol: TCP
-    targetPort: 8080
+    targetPort: 8081
   type: LoadBalancer
   selector:
     app: asgbuggy

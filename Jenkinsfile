@@ -39,7 +39,7 @@ pipeline {
       }
     }
 
-    /*
+    
     stage('Kubernetes Deployment') {
       steps {
         withKubeConfig([credentialsId: 'kubelogin']) {
@@ -63,6 +63,6 @@ pipeline {
         }
       }
     }
-    */
+    
   }
 }
